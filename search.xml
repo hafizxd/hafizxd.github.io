@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Javascript ES6</title>
+    <title>Javascript ES6 Part 2 - Arrow Function</title>
+    <url>/2020/03/29/javascript-es6-part2/</url>
+    <content><![CDATA[<h4 id="jadi-syntax-ini-gt-maksudnya-apa"><a href="#jadi-syntax-ini-gt-maksudnya-apa" class="headerlink" title="jadi syntax ini =&gt; maksudnya apa ?"></a><strong>jadi syntax ini =&gt; maksudnya apa ?</strong></h4><p>Dulu pertama kali saya membaca code ES6, arrow function (=&gt;) membuat saya bingung untuk memahami code tersebut. Setelah saya pelajari sebenarnya arrow function itu hanyalah penyederhanaan penulisan sebuah function. untuk lebih jelasnya kalian bisa mencoba code arrow-1.js di bawah ini. Tapi bukan hanya untuk penyederhanaan saja, memang ada saatnya dimana kita benar-benar harus memakai arrow function.</p>
+<p><code>//contoh 1 const func1 = function(a, b) { return a + b; }; console.log(func1(3, 3)); //6</code></p>
+<p><code>//contoh 2 const func2 = (a, b) =&gt; { return a + b; }; console.log(func2(3, 3)); //6</code></p>
+<p><code>//contoh 3 const func3 = (a, b) =&gt; a + b; console.log(func3(3, 3)); //6</code></p>
+<p><code>//contoh 4 const func4 = (dobel) =&gt; dobel + dobel; console.log(func4(5)); //10</code></p>
+<p><code>//contoh 5 const func5 = dobel =&gt; dobel + dobel; console.log(func5(5)); //10</code></p>
+<p><code>//contoh 6 const numbers = [1, 2, 3, 4, 5]; const kalidua1 = numbers.map(function(number) { return 2 \* number; }); console.log(kalidua1); //[ 2, 4, 6, 8, 10 ]</code></p>
+<p><code>//contoh 7 const kalidua2 = numbers.map(number =&gt; 2 \* number); console.log(kalidua2); //[ 2, 4, 6, 8, 10 ];</code></p>
+<p>Gimana bisa kalian lihat kan? perbedaan tulisan pada contoh code 1–3. Namun outputan dari ketiga potongan code tersebut adalah sama. Perbedaan dari contoh code 1 dan contoh code 2 hanyalah dipenulisan yaitu menghilangkan kata function sebelum paramater dan menambahkan =&gt; setelah parameter. Begitu juga perbedaan dari contoh code 2 dan code 3, karena pada body fungsi tersebut hanya mempunyai single javascript expression maka kita dapat menghilangkan kata return dan kurung kurawalnya.</p>
+<p>Sedangkan pada contoh code 4 dan 5, karena function tersebut hanya mempunyai satu argument maka kita dapat menghilangkan kurung buka dan tutupnya. Bagaimana dengan contoh code 6 dan 7? buat yang belum paham dengan array helper mungkin akan merasa bingung. Oke next part kita akan membahas beberapa macam array helper yang sering digunakan pada ES6. Dokumentasi lengkap arrow function bisa kalian lihat di <a href="https://developer.mozilla.org/id/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">sini</a>.</p>
+<p>Sekian tulisan dari saya kali ini, jika ada yang kurang atau ingin bertanya bisa post responses di bawah sini ya.</p>
+]]></content>
+      <categories>
+        <category>Pemrograman</category>
+      </categories>
+      <tags>
+        <tag>es6</tag>
+        <tag>javascript</tag>
+        <tag>pemrograman</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript ES6 Part 1 - Variable</title>
     <url>/2020/03/29/javascript-es6/</url>
     <content><![CDATA[<p>Halo guys, kali ini saya akan sharing sedikit tentang ES6 (ECMA Script 2015). Banyak orang ingin belajar framework atau library tertentu yang menggunakan bahasa Javascript seperti (React, React-Native, Angular, Vue, dll) . Nah tapi merasa kesulitan untuk memahami (seperti saya), salah satu faktornya adalah kita belum tau atau belum paham tentang bahasa yang dipakai oleh framework/library itu sendiri. Oleh karena itu saya ingin sharing tulisan tentang ES6, agar mempermudah developer yang ingin mempelajari suatu framework/library yang menggunakan JS. Btw tulisan ini cocok untuk dibaca oleh orang yang sudah paham tentang basic pemrograman di bahasa tertentu misal java, php, python, dll.</p>
 <h3 id="Jadi…-apa-itu-ES6-atau-ECMAScript-2015"><a href="#Jadi…-apa-itu-ES6-atau-ECMAScript-2015" class="headerlink" title="Jadi…. apa itu ES6 atau ECMAScript 2015?"></a><strong>Jadi…. apa itu ES6 atau ECMAScript 2015?</strong></h3><p>ES6 adalah sebuah singkatan dari ECMAScript versi 6. ES6 release pada tahun 2015, jadi ES6 sama ES 2015 sama aja ya. Lalu apa itu ECMAScript? ECMAScript adalah sebuah standarisasi scripting language (Javascript) yang dibuat oleh European Computer Manufacturers Association (ECMA). Bahasa gampangnya ECMAScript itu standarnya, Javascript itu implementasinya.</p>
@@ -12,8 +36,7 @@
 <blockquote>
 <p>Untuk mendapatkan experience lebih, harap tidak copy paste contoh code.</p>
 </blockquote>
-<p><strong>var (function scope)</strong></p>
-<p><code>for (var i = 0; i &lt; 5; i++) { console.log(i) // 0 1 2 3 4 } console.log(i) // 5</code></p>
+<h4 id="var-function-scope"><a href="#var-function-scope" class="headerlink" title="var (function scope)"></a><strong>var (function scope)</strong></h4><p><code>for (var i = 0; i &lt; 5; i++) { console.log(i) // 0 1 2 3 4 } console.log(i) // 5</code></p>
 <p>Jika code var-1.js dijalankan maka akan mengeluarkan output yang sesuai pada comment code baris 2 dan 4.</p>
 <p><code>function looping() { for (var i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } } looping(); console.log(i); // ReferenceError: i is not defined</code></p>
 <p>Nah gimana kalau code var-2.js dijalankan? program akan mengeluarkan output ReferenceError: i is not defined. Kenapa? karena varibel i di deklarasikan menggunakan var di dalam function looping(). Sedangkan pada baris 7 kita memanggi variabel i di luar function looping(). Hal ini menunjukan jika var berjalan pada cakupan function (function scope).</p>
@@ -22,20 +45,26 @@
 <blockquote>
 <p>Kesimpulannya variabel yang dideklarasikan menggunakan var hanya dapat dipanggil dalam cakupan sebuah fungsi dimana variabel tersebut dideklarasikan. Child function juga dapat memanggil variabel yang dideklarasikan menggunakan var pada root functionnya (contohnya seperti code var-3.js)</p>
 </blockquote>
-<p><strong>let (block scope)</strong></p>
-<p><code>for (let i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } console.log(i); // ReferenceError: i is not defined</code></p>
+<h4 id="let-block-scope"><a href="#let-block-scope" class="headerlink" title="let (block scope)"></a><strong>let (block scope)</strong></h4><p><code>for (let i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } console.log(i); // ReferenceError: i is not defined</code></p>
 <p>Jika code let-1.js dijalankan maka akan mengeluarkan output ReferenceError: i is not defined. kenapa? karena batas sebuah block adalah sebuah kurung kurawal { some code here }. Jika kalian lihat pada code let-1.js terdapat block scope (baris 1–3). Variabel i dideklarasikan menggunakan let di dalam block scope tersebut, namun variabel i dipanggil dari luar block scope (baris 4).</p>
 <p><code>for (let i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } if (true) { let i = &quot;100&quot;; console.log(&quot;i = &quot;,i); // i = 100 }</code></p>
 <p>Nah jika kalian menjalankan code let-2.js akan mengeluarkan output seperti comment pada baris 2 dan 6. Ini dikarenakan variabel yang dideklarasikan menggunakan let dipanggil dalam block scope masing-masing. Terdapat dua block scope pada code let-2.js (baris 1–3) dan (baris 4–7).</p>
 <blockquote>
 <p>Kesimpulannya dari dua contoh code diatas adalah variabel yang dideklarasikan menggunakan let hanya dapat dipanggil dalam sebuah block scope yang sama. Sebuah block scope dapat ditandai dengan sebuah kurung kurawal { ….. some code here ….. }</p>
 </blockquote>
-<p><strong>const (variabel konstanta)</strong></p>
-<p>Sifat const sama seperti let, namun perbedaanya variabel yang dideklarasikan menggunakan const tidak dapat diubah nilainya atau immutable variables.</p>
+<h4 id="const-variabel-konstanta"><a href="#const-variabel-konstanta" class="headerlink" title="const (variabel konstanta)"></a><strong>const (variabel konstanta)</strong></h4><p>Sifat const sama seperti let, namun perbedaanya variabel yang dideklarasikan menggunakan const tidak dapat diubah nilainya atau immutable variables.</p>
 <p>`const phi = 3.14;<br>phi = 3.147;</p>
 <p>console.log(phi)`</p>
 <p>Jika code const-1.js dijalankan maka akan mengeluarkan output error TypeError: Assignment to constant variable. Ini menandakan sebuah variabel yang dideklarasikan menggunakan const nilainya tidak dapat diubah atau di-reassign.</p>
 <p>Sekian tulisan dari saya kali ini, jika ada yang kurang atau ingin bertanya bisa post responses di bawah sini ya.</p>
 ]]></content>
+      <categories>
+        <category>Pemrograman</category>
+      </categories>
+      <tags>
+        <tag>es6</tag>
+        <tag>javascript</tag>
+        <tag>pemrograman</tag>
+      </tags>
   </entry>
 </search>

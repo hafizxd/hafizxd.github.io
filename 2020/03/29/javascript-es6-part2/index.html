@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HafizXD</title>
+    <title>Javascript ES6 Part 2 - Arrow Function - HafizXD</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="Hafiz personal Blog,"> 
+    <meta name="description" content="Hafiz personal Blog,jadi syntax ini =&amp;gt; maksudnya apa ?Dulu pertama kali saya membaca code ES6, arrow function (=&amp;gt;,"> 
     <meta name="author" content="Hafiz Aminsalim"> 
     <link rel="alternative" href="atom.xml" title="HafizXD" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -35,26 +35,76 @@
 <body class="loading">
     <span id="config-title" style="display:none">HafizXD</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="iconfont icon-left image-icon" href="javascript:history.back()"></a>
-    </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                
-                    <div class="set">
-  <h2>Kategori</h2>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Pemrograman/">Pemrograman</a><span class="category-list-count">2</span></li></ul>
-</div>
-                
-                </div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://hafizxd.github.io"></a>
+    <div title="Mainkan / Jeda" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Javascript ES6 Part 2 - Arrow Function</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="Dapatkan kode QR" class="iconfont icon-scan" href="javascript:;"></a>
             </div>
+            <div id="qr"></div>
         </div>
     </div>
+    <div class="scrollbar"></div>
 </div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Javascript ES6 Part 2 - Arrow Function</h1>
+        <div class="stuff">
+            <span>29 Maret, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/es6/" rel="tag">es6</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/pemrograman/" rel="tag">pemrograman</a></li></ul>
 
+
+        </div>
+        <div class="content markdown">
+            <h4 id="jadi-syntax-ini-gt-maksudnya-apa"><a href="#jadi-syntax-ini-gt-maksudnya-apa" class="headerlink" title="jadi syntax ini =&gt; maksudnya apa ?"></a><strong>jadi syntax ini =&gt; maksudnya apa ?</strong></h4><p>Dulu pertama kali saya membaca code ES6, arrow function (=&gt;) membuat saya bingung untuk memahami code tersebut. Setelah saya pelajari sebenarnya arrow function itu hanyalah penyederhanaan penulisan sebuah function. untuk lebih jelasnya kalian bisa mencoba code arrow-1.js di bawah ini. Tapi bukan hanya untuk penyederhanaan saja, memang ada saatnya dimana kita benar-benar harus memakai arrow function.</p>
+<p><code>//contoh 1 const func1 = function(a, b) { return a + b; }; console.log(func1(3, 3)); //6</code></p>
+<p><code>//contoh 2 const func2 = (a, b) =&gt; { return a + b; }; console.log(func2(3, 3)); //6</code></p>
+<p><code>//contoh 3 const func3 = (a, b) =&gt; a + b; console.log(func3(3, 3)); //6</code></p>
+<p><code>//contoh 4 const func4 = (dobel) =&gt; dobel + dobel; console.log(func4(5)); //10</code></p>
+<p><code>//contoh 5 const func5 = dobel =&gt; dobel + dobel; console.log(func5(5)); //10</code></p>
+<p><code>//contoh 6 const numbers = [1, 2, 3, 4, 5]; const kalidua1 = numbers.map(function(number) { return 2 \* number; }); console.log(kalidua1); //[ 2, 4, 6, 8, 10 ]</code></p>
+<p><code>//contoh 7 const kalidua2 = numbers.map(number =&gt; 2 \* number); console.log(kalidua2); //[ 2, 4, 6, 8, 10 ];</code></p>
+<p>Gimana bisa kalian lihat kan? perbedaan tulisan pada contoh code 1–3. Namun outputan dari ketiga potongan code tersebut adalah sama. Perbedaan dari contoh code 1 dan contoh code 2 hanyalah dipenulisan yaitu menghilangkan kata function sebelum paramater dan menambahkan =&gt; setelah parameter. Begitu juga perbedaan dari contoh code 2 dan code 3, karena pada body fungsi tersebut hanya mempunyai single javascript expression maka kita dapat menghilangkan kata return dan kurung kurawalnya.</p>
+<p>Sedangkan pada contoh code 4 dan 5, karena function tersebut hanya mempunyai satu argument maka kita dapat menghilangkan kurung buka dan tutupnya. Bagaimana dengan contoh code 6 dan 7? buat yang belum paham dengan array helper mungkin akan merasa bingung. Oke next part kita akan membahas beberapa macam array helper yang sering digunakan pada ES6. Dokumentasi lengkap arrow function bisa kalian lihat di <a href="https://developer.mozilla.org/id/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">sini</a>.</p>
+<p>Sekian tulisan dari saya kali ini, jika ada yang kurang atau ingin bertanya bisa post responses di bawah sini ya.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                
+                    
+                
+                <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                
+                    
+            </ul>
+            
+        </div>
+        
+<div id='gitalk-container' class="comment link" data-enable='true'
+    data-ae='false' data-ci='' data-cs=''
+    data-r='' data-o='' data-a=''
+    data-d='false'>Lihat komentar</div>
+
+        </div>
+        
+</div>
+    </div>
+</div>
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>

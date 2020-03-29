@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Javascript ES6 - HafizXD</title>
+    <title>Javascript ES6 Part 1 - Variable - HafizXD</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -40,7 +40,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://hafizxd.github.io"></a>
     <div title="Mainkan / Jeda" class="iconfont icon-play"></div>
-    <h3 class="subtitle">Javascript ES6</h3>
+    <h3 class="subtitle">Javascript ES6 Part 1 - Variable</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -54,10 +54,12 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">Javascript ES6</h1>
+        <h1 class="title">Javascript ES6 Part 1 - Variable</h1>
         <div class="stuff">
             <span>29 Maret, 2020</span>
             
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/es6/" rel="tag">es6</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/pemrograman/" rel="tag">pemrograman</a></li></ul>
+
 
         </div>
         <div class="content markdown">
@@ -70,8 +72,7 @@
 <blockquote>
 <p>Untuk mendapatkan experience lebih, harap tidak copy paste contoh code.</p>
 </blockquote>
-<p><strong>var (function scope)</strong></p>
-<p><code>for (var i = 0; i &lt; 5; i++) { console.log(i) // 0 1 2 3 4 } console.log(i) // 5</code></p>
+<h4 id="var-function-scope"><a href="#var-function-scope" class="headerlink" title="var (function scope)"></a><strong>var (function scope)</strong></h4><p><code>for (var i = 0; i &lt; 5; i++) { console.log(i) // 0 1 2 3 4 } console.log(i) // 5</code></p>
 <p>Jika code var-1.js dijalankan maka akan mengeluarkan output yang sesuai pada comment code baris 2 dan 4.</p>
 <p><code>function looping() { for (var i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } } looping(); console.log(i); // ReferenceError: i is not defined</code></p>
 <p>Nah gimana kalau code var-2.js dijalankan? program akan mengeluarkan output ReferenceError: i is not defined. Kenapa? karena varibel i di deklarasikan menggunakan var di dalam function looping(). Sedangkan pada baris 7 kita memanggi variabel i di luar function looping(). Hal ini menunjukan jika var berjalan pada cakupan function (function scope).</p>
@@ -80,16 +81,14 @@
 <blockquote>
 <p>Kesimpulannya variabel yang dideklarasikan menggunakan var hanya dapat dipanggil dalam cakupan sebuah fungsi dimana variabel tersebut dideklarasikan. Child function juga dapat memanggil variabel yang dideklarasikan menggunakan var pada root functionnya (contohnya seperti code var-3.js)</p>
 </blockquote>
-<p><strong>let (block scope)</strong></p>
-<p><code>for (let i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } console.log(i); // ReferenceError: i is not defined</code></p>
+<h4 id="let-block-scope"><a href="#let-block-scope" class="headerlink" title="let (block scope)"></a><strong>let (block scope)</strong></h4><p><code>for (let i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } console.log(i); // ReferenceError: i is not defined</code></p>
 <p>Jika code let-1.js dijalankan maka akan mengeluarkan output ReferenceError: i is not defined. kenapa? karena batas sebuah block adalah sebuah kurung kurawal { some code here }. Jika kalian lihat pada code let-1.js terdapat block scope (baris 1–3). Variabel i dideklarasikan menggunakan let di dalam block scope tersebut, namun variabel i dipanggil dari luar block scope (baris 4).</p>
 <p><code>for (let i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } if (true) { let i = &quot;100&quot;; console.log(&quot;i = &quot;,i); // i = 100 }</code></p>
 <p>Nah jika kalian menjalankan code let-2.js akan mengeluarkan output seperti comment pada baris 2 dan 6. Ini dikarenakan variabel yang dideklarasikan menggunakan let dipanggil dalam block scope masing-masing. Terdapat dua block scope pada code let-2.js (baris 1–3) dan (baris 4–7).</p>
 <blockquote>
 <p>Kesimpulannya dari dua contoh code diatas adalah variabel yang dideklarasikan menggunakan let hanya dapat dipanggil dalam sebuah block scope yang sama. Sebuah block scope dapat ditandai dengan sebuah kurung kurawal { ….. some code here ….. }</p>
 </blockquote>
-<p><strong>const (variabel konstanta)</strong></p>
-<p>Sifat const sama seperti let, namun perbedaanya variabel yang dideklarasikan menggunakan const tidak dapat diubah nilainya atau immutable variables.</p>
+<h4 id="const-variabel-konstanta"><a href="#const-variabel-konstanta" class="headerlink" title="const (variabel konstanta)"></a><strong>const (variabel konstanta)</strong></h4><p>Sifat const sama seperti let, namun perbedaanya variabel yang dideklarasikan menggunakan const tidak dapat diubah nilainya atau immutable variables.</p>
 <p>`const phi = 3.14;<br>phi = 3.147;</p>
 <p>console.log(phi)`</p>
 <p>Jika code const-1.js dijalankan maka akan mengeluarkan output error TypeError: Assignment to constant variable. Ini menandakan sebuah variabel yang dideklarasikan menggunakan const nilainya tidak dapat diubah atau di-reassign.</p>
@@ -193,6 +192,25 @@
 </div>
 
 
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 
