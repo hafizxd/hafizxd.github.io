@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Javascript ES6</title>
+    <url>/2020/03/29/javascript-es6/</url>
+    <content><![CDATA[<p>Halo guys, kali ini saya akan sharing sedikit tentang ES6 (ECMA Script 2015). Banyak orang ingin belajar framework atau library tertentu yang menggunakan bahasa Javascript seperti (React, React-Native, Angular, Vue, dll) . Nah tapi merasa kesulitan untuk memahami (seperti saya), salah satu faktornya adalah kita belum tau atau belum paham tentang bahasa yang dipakai oleh framework/library itu sendiri. Oleh karena itu saya ingin sharing tulisan tentang ES6, agar mempermudah developer yang ingin mempelajari suatu framework/library yang menggunakan JS. Btw tulisan ini cocok untuk dibaca oleh orang yang sudah paham tentang basic pemrograman di bahasa tertentu misal java, php, python, dll.</p>
+<p><strong>Jadi…. apa itu ES6 atau ECMAScript 2015?</strong></p>
+<p>ES6 adalah sebuah singkatan dari ECMAScript versi 6. ES6 release pada tahun 2015, jadi ES6 sama ES 2015 sama aja ya. Lalu apa itu ECMAScript? ECMAScript adalah sebuah standarisasi scripting language (Javascript) yang dibuat oleh European Computer Manufacturers Association (ECMA). Bahasa gampangnya ECMAScript itu standarnya, Javascript itu implementasinya.</p>
+<p>Untuk menjalankan sebuah program yang ditulis menggunakan ES6 kalian dapat menggunakan NodeJS dengan command dibawah ini. Panduan untuk installasi NodeJS bisa kalian lihat di <a href="https://www.codepolitan.com/tutorial/cara-install-nodejs" target="_blank" rel="noopener">sini</a>.</p>
+<p><code>node namaFileJS</code></p>
+<p><strong>Variabel</strong></p>
+<p>Di dalam JavaScript kita tidak perlu mendeklarasikan jenis tipe data. Seluruh variabel di dalam JavaScript dapat berisi nilai apapun (tipe data apapun), dan dapat diubah menjadi tipe lain sepanjang program. Untuk mendeklrasikan sebuah variabel ada 3 cara yaitu menggunakan const, let, dan var.</p>
+<p><strong>let dan var :</strong> fungsi dari let dan var sebenarnya sama untuk mendeklarasikan variabel yang nilainya dapat diubah. Namun perbedaanya adalah var mempunyai cakupan dalam sebuah fungsi (function scope) dan let mempunyai cakupan dalam sebuah block (block scope). Bingung apa maksudnya? oke saya akan memberikan sebuah contoh melalui code.</p>
+<p><strong>var (function scope)</strong></p>
+<p><code>for (var i = 0; i &lt; 5; i++) { console.log(i) // 0 1 2 3 4 } console.log(i) // 5</code></p>
+<p>Jika code var-1.js dijalankan maka akan mengeluarkan output yang sesuai pada comment code baris 2 dan 4.</p>
+<p><code>function looping() { for (var i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 } } looping(); console.log(i); // ReferenceError: i is not defined</code></p>
+<p>Nah gimana kalau code var-2.js dijalankan? program akan mengeluarkan output ReferenceError: i is not defined. Kenapa? karena varibel i di deklarasikan menggunakan var di dalam function looping(). Sedangkan pada baris 7 kita memanggi variabel i di luar function looping(). Hal ini menunjukan jika var berjalan pada cakupan function (function scope).</p>
+<p><code>function looping() { for (var i = 0; i &lt; 5; i++) { console.log(i); // 0 1 2 3 4 5 } function inLooping() { console.log(i); // 5 } inLooping(); } looping();</code></p>
+<p>Bagaimana jika code var-3.js dijalankan? tidak ada error kan? apakah ada yang bingung kenapa baris 6 tidak error padahal variabel i tidak dalam scope function inLooping() ? ini dikarenakan function inLooping() masuk ke dalam scope function looping(). Oleh karena itu variabel i pada baris 6 dapat dipanggil.</p>
+]]></content>
+  </entry>
+</search>
