@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Javascript ES6 Part 3 - Array Helper (ForEach, Map, Filter) - HafizXD</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Hafiz personal Blog,Halo guys, kali ini saya ingin melanjutkan tulisan pengenalan ES6 Javascript. Pada part 3 ini saya ,"> 
+    <meta name="author" content="Hafiz Aminsalim"> 
+    <link rel="alternative" href="atom.xml" title="HafizXD" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">HafizXD</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://hafizxd.github.io"></a>
+    <div title="Mainkan / Jeda" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Javascript ES6 Part 3 - Array Helper (ForEach, Map, Filter)</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="Dapatkan kode QR" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Javascript ES6 Part 3 - Array Helper (ForEach, Map, Filter)</h1>
+        <div class="stuff">
+            <span>31 Maret, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/es6/" rel="tag">es6</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/pemrograman/" rel="tag">pemrograman</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>Halo guys, kali ini saya ingin melanjutkan tulisan pengenalan ES6 Javascript. Pada part 3 ini saya akan membahas beberapa Array Helper Methods yang umum digunakan oleh developer. Array Helper Methods yang akan saya bahas diantaranya adalah forEach, map, find, filter, every, some, dan reduce.</p>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a><strong>forEach()</strong></h3><p>Jadi fungsi dari method forEach() helper sebenarnya seperti ketika kita membuat looping untuk mengakses isi dari sebuah array. Berikut adalah contoh code-nya forEach-1.js menggunakan perulangan for, sedangkan forEach-2.js menggunakan forEach().</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// contoh code menggunakan looping biasa</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> days = [<span class="string">'senin'</span>, <span class="string">'selasa'</span>, <span class="string">'rabu'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; days.length; i++) &#123;</span><br><span class="line">  printDay(days[i]); <span class="comment">// senin selasa rabu</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//iterator function</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printDay</span>(<span class="params">day</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(day);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// contoh code menggunakan forEach() helper</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> days = [<span class="string">'senin'</span>, <span class="string">'selasa'</span>, <span class="string">'rabu'</span>];</span><br><span class="line"></span><br><span class="line">days.forEach(<span class="function"><span class="params">day</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(day); <span class="comment">// senin selasa rabu</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Setelah melihat code diatas, apakah sudah paham? misal belum paham saya berikan ilustrasinya forEach() helper. Setiap iterasi pada forEach() helper akan mem-passing setiap objek yang ada di dalam array ke sebuah iterator function . Dalam contoh code forEach-2.js terdapat sebuah arrow function (ini adalah iterator function) yang mempunyai parameter variabel day, artinya setiap objek dalam array tersebut akan dimasukan ke dalam variabel day setiap iterasi. Btw variabel dengan nama day itu bebas ya namanya, mau diganti hari juga gapapa itu hanya menggambarkan satuan objek yang digunakan pada fungsi yang sudah dibuat.</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map()"></a><strong>map()</strong></h3><p>Bisa dibilang fungsi method map() mirip dengan forEach() namun bedanya pada map() setiap iterator function dipanggil, kita dapat mengembalikan sebuah nilai dan dapat dimasukkan kedalam variabel array yang baru. Coba kalian melakukan return menggunakan forEach() dan menggunakan map() dan bedakan hasilnya menggunakan console.log() contoh code map-ForEach.js. Sebelum itu seperti biasa saya mencotohkan code yang ditulis menggunakan looping biasa dan menggunakan map(). Code map-1.js menggunakan looping biasa dan code map-2.js menggunakan function map().</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// contoh code menggunakan looping biasa tanpa fucntion map()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> doubleNumbers = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">  <span class="comment">//numbers[i] = numbers [i] * 2;</span></span><br><span class="line">  doubleNumbers.push(doubleNumberFunction(numbers[i]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//iterator function</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doubleNumberFunction</span>(<span class="params">number</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> number * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(doubleNumbers); <span class="comment">// [ 2, 4, 6 ]</span></span><br></pre></td></tr></table></figure>
+
+<p>Mungkin ada beberapa orang bertanya, kenapa sih harus membuat array baru? kenapa kita tidak mutating array yang sudah ada? dan melakukan fungsi seperti pada baris 5. Kalian bisa membaca tulisan tentang kenapa immutable javascript itu baik <a href="https://wecodetheweb.com/2016/02/12/immutable-javascript-using-es6-and-beyond/" target="_blank" rel="noopener">disini</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// contoh code menggunakan map() helper</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doubleNumbers = numbers.map(<span class="function"><span class="params">number</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> number * <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(doubleNumbers); <span class="comment">// [ 2, 4, 6 ]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// contoh code perbandingan map dan forEach</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> doubleNumbersForEach,</span><br><span class="line">  doubleNumbersMap = [];</span><br><span class="line"></span><br><span class="line">doubleNumbersForEach = numbers.forEach(<span class="function"><span class="params">number</span> =&gt;</span> number * <span class="number">2</span>);</span><br><span class="line">doubleNumbersMap = numbers.map(<span class="function"><span class="params">number</span> =&gt;</span> number * <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(doubleNumbersForEach); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(doubleNumbersMap); <span class="comment">//[ 2, 4, 6 ]</span></span><br></pre></td></tr></table></figure>
+
+<p>btw kalo ada yang bingung kok code di baris 4 dan 5 tidak ada syntax return nya? coba kalian lihat tulisan saya part 2 bagian arrow function. Setiap iterasi akan menjalankan iterator function yang telah dibuat. pada code map-2.js iterator function digambarkan pada baris 3–5. Iterator function tersebut mengembalikan hasil nilai variabel number * 2.</p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a><strong>filter()</strong></h3><p>Seperti namanya fungsi method filter() adalah method yang digunakan untuk mempermudah kita ketika ingin menyaring sebuah data. Pada code filter-1.js dicontohkan code ketika kita ingin menyaring data products. Sedangkan code filter-2.js contoh code ketika kita memakai method filter().</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// contoh code ketika menggunakan looping biasa</span></span><br><span class="line"><span class="keyword">var</span> products = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'cucumber'</span>, <span class="attr">type</span>: <span class="string">'vegetable'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'banana'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'apple'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'orange'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'carrot'</span>, <span class="attr">type</span>: <span class="string">'vegetable'</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> filteredProducts = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; products.length; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (products[i].type === <span class="string">'fruit'</span>) &#123;</span><br><span class="line">    filteredProducts.push(products[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(filteredProducts);</span><br><span class="line"><span class="comment">// [ &#123; name: 'banana', type: 'fruit' &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: 'apple', type: 'fruit' &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: 'orange', type: 'fruit' &#125; ]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// contoh code ketika menggunakan filter() helper</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> products = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'cucumber'</span>, <span class="attr">type</span>: <span class="string">'vegetable'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'banana'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'apple'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'orange'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'carrot'</span>, <span class="attr">type</span>: <span class="string">'vegetable'</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> filteredProducts = [];</span><br><span class="line"></span><br><span class="line">filteredProducts = products.filter(<span class="function"><span class="params">product</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> product.type === <span class="string">'fruit'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(filteredProducts);</span><br><span class="line"><span class="comment">// [ &#123; name: 'banana', type: 'fruit' &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: 'apple', type: 'fruit' &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: 'orange', type: 'fruit' &#125; ]</span></span><br></pre></td></tr></table></figure>
+
+<p>Sebenarnya proses filter() mirip seperti map() bedanya pada method filter() return setiap iterator function bernilai boolean (true or false). Setiap return yang bernilai true akan direturn pada result array seperti contoh code filter-2.js. Iterator function pada baris 11–13 berisikan proses untuk menyaring objek yang ada didalam array products yang memiliki type ‘fruit’.</p>
+<p>Sekian tulisan dari saya kali ini, jika ada yang kurang atau ingin bertanya bisa post response di bawah sini ya.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='https://www.mboxdrive.com/Ardhito%20Pramono%20-%20fine%20today%20(Nanti%20Kita%20Cerita%20Tentang%20Hari%20Ini%20-%20Original%20Mot....mp3'></li>
+                
+                    
+            </ul>
+            
+        </div>
+        
+<div id='gitalk-container' class="comment link" data-enable='true'
+    data-ae='false' data-ci='' data-cs=''
+    data-r='' data-o='' data-a=''
+    data-d='false'>Lihat komentar</div>
+
+        </div>
+        
+</div>
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
