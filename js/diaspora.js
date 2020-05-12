@@ -430,25 +430,17 @@ $(function () {
                     typed = null;
                 } else {
                     if ($("#hitokoto").data('st') == true) {
-                        $.get("https://v1.hitokoto.cn/", function (data) {
-                            var data = data;
-                            var str = data.hitokoto + " ——  By "
-                            var options = {
-                                strings: [
-                                    // str + "Who??^1000",
-                                    //str + "It's me^2000",
-                                    //str +'Haha, make a joke',
-                                    // str + data.from,
-                                    'Dibuat dengan penuh cintahh xD'
-                                ],
-                                typeSpeed: 90,
-                                startDelay: 500,
-                                //backDelay: 500,
-                                //backSpeed: 50,//回退速度
-                                //loop: true,
-                            }
-                            typed = new Typed(".hitokoto .typed", options);
-                        })
+                        var options = {
+                            strings: [
+                                'Be inspired.'
+                            ],
+                            typeSpeed: 90,
+                            startDelay: 500,
+                            //backDelay: 500,
+                            //backSpeed: 50,//回退速度
+                            //loop: true,
+                        }
+                        typed = new Typed(".hitokoto .typed", options);
                     }
                 }
                 return false;
